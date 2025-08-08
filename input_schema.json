@@ -3,114 +3,44 @@
   "type": "object",
   "schemaVersion": 1,
   "properties": {
-    "start_urls": {
-      "title": "Start URLs",
-      "type": "array",
-      "description": "URLs to navigate to after login. The first URL should be the CSV download page.",
-      "items": {
-        "type": "object",
-        "properties": {
-          "url": {
-            "title": "URL",
-            "type": "string",
-            "description": "The URL to navigate to"
-          },
-          "method": {
-            "title": "HTTP Method",
-            "type": "string",
-            "enum": ["GET", "POST"],
-            "default": "GET",
-            "description": "HTTP method to use"
-          }
-        },
-        "required": ["url"]
-      },
-      "default": [
-        {
-          "url": "https://employers.indeed.com/candidates",
-          "method": "GET"
-        }
-      ]
-    },
     "login_url": {
       "title": "Login URL",
       "type": "string",
-      "description": "Indeed login page URL (e.g., https://employers.indeed.com/). This should be the URL where you normally log into your Indeed employer account.",
-      "default": "https://employers.indeed.com/",
-      "editor": "textfield"
+      "description": "Indeed login page URL"
     },
-    "indeed_username": {
-      "title": "Indeed Username/Email",
+    "csv_download_url": {
+      "title": "CSV Download Page URL",
       "type": "string",
-      "description": "Your Indeed employer account username or email address",
-      "editor": "textfield",
-      "isSecret": true
+      "description": "The page containing the CSV download link/button"
     },
-    "indeed_password": {
-      "title": "Indeed Password",
+    "username": {
+      "title": "Username",
       "type": "string",
-      "description": "Your Indeed employer account password",
-      "editor": "textfield",
-      "isSecret": true
+      "description": "Indeed account email"
     },
-    "csv_type": {
-      "title": "CSV Type to Download",
+    "password": {
+      "title": "Password",
       "type": "string",
-      "description": "Type of CSV to download",
-      "default": "candidates",
-      "enum": ["candidates", "reports"],
-      "enumTitles": ["Candidates CSV", "Reports CSV"]
-    },
-    "job_id": {
-      "title": "Job ID (Optional)",
-      "type": "string",
-      "description": "Specific job ID to download candidates for (leave empty for all jobs)",
-      "editor": "textfield"
+      "description": "Indeed account password"
     },
     "n8n_webhook_url": {
       "title": "n8n Webhook URL",
       "type": "string",
-      "description": "Optional. Webhook URL to receive the CSV file (multipart/form-data). Useful for integrating with n8n workflows.",
-      "default": "",
-      "editor": "textfield"
+      "description": "Optional. Webhook URL to receive the CSV",
+      "default": ""
     },
     "save_cookies": {
       "title": "Save cookies between runs",
       "type": "boolean",
-      "description": "If true, actor will persist cookies to KV store and reuse on next runs. This makes subsequent runs faster by avoiding re-login.",
-      "default": true,
-      "editor": "checkbox"
+      "description": "If true, cookies are saved and reused",
+      "default": true
     },
     "download_filename": {
       "title": "Download filename",
       "type": "string",
-      "description": "Filename to save in /tmp and in KV store. You can use variables like {{DATE}} for dynamic naming.",
-      "default": "indeed-candidates-{{DATE}}.csv",
-      "editor": "textfield"
-    },
-    "max_retries": {
-      "title": "Maximum retries",
-      "type": "integer",
-      "description": "Number of times to retry the entire flow if it fails",
-      "default": 2,
-      "minimum": 1,
-      "maximum": 5,
-      "editor": "number"
-    },
-    "timeout": {
-      "title": "Timeout (milliseconds)",
-      "type": "integer",
-      "description": "Timeout for download operations in milliseconds",
-      "default": 30000,
-      "minimum": 10000,
-      "maximum": 120000,
-      "editor": "number"
+      "description": "Output file name (default: indeed-output.csv)",
+      "default": "indeed-output.csv"
     }
   },
-  "required": [
-    "indeed_username",
-    "indeed_password",
-    "login_url",
-    "start_urls"
-  ]
+  "required": ["login_url", "csv_download_url", "username", "password"]
 }
