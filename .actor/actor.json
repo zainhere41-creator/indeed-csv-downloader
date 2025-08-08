@@ -1,0 +1,8 @@
+{
+  "actorSpecification": 1,
+  "name": "indeed-csv-downloader",
+  "title": "Indeed CSV Downloader",
+  "version": "0.0.2",
+  "description": "Logs into Indeed, downloads CSV report, saves to Apify KV store, and posts to n8n webhook. Cookies persisted between runs.",
+  "dockerfile": "Dockerfile"
+}

@@ -1,0 +1,60 @@
+{
+  "title": "Indeed CSV Downloader Output",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "status": {
+      "title": "Status",
+      "type": "string",
+      "enum": ["Success", "Failed"],
+      "description": "Status of the CSV download operation"
+    },
+    "csv_type": {
+      "title": "CSV Type",
+      "type": "string",
+      "enum": ["candidates", "reports"],
+      "description": "Type of CSV that was downloaded"
+    },
+    "csv_filename": {
+      "title": "CSV Filename",
+      "type": "string",
+      "description": "Name of the downloaded CSV file"
+    },
+    "file_size": {
+      "title": "File Size",
+      "type": "integer",
+      "description": "Size of the downloaded file in bytes"
+    },
+    "download_method": {
+      "title": "Download Method",
+      "type": "string",
+      "description": "Method used to download the CSV (direct_url, button_click, link_scan, multiple_attempts)"
+    },
+    "error": {
+      "title": "Error Message",
+      "type": "string",
+      "description": "Error message if download failed"
+    },
+    "execution_time": {
+      "title": "Execution Time",
+      "type": "number",
+      "description": "Total execution time in seconds"
+    },
+    "cookies_saved": {
+      "title": "Cookies Saved",
+      "type": "boolean",
+      "description": "Whether cookies were saved for future runs"
+    },
+    "webhook_sent": {
+      "title": "Webhook Sent",
+      "type": "boolean",
+      "description": "Whether the CSV was sent to n8n webhook"
+    },
+    "job_id": {
+      "title": "Job ID",
+      "type": "string",
+      "description": "Specific job ID if provided in input"
+    }
+  },
+  "required": ["status"]
+}

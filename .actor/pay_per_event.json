@@ -1,0 +1,37 @@
+{
+  "title": "Pay Per Event Configuration",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "eventTypes": {
+      "title": "Event Types",
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": ["CSV_DOWNLOADED", "LOGIN_SUCCESS", "LOGIN_FAILED", "WEBHOOK_SENT"]
+      },
+      "description": "Types of events that can be billed"
+    },
+    "pricing": {
+      "title": "Pricing",
+      "type": "object",
+      "properties": {
+        "CSV_DOWNLOADED": {
+          "title": "CSV Downloaded Price",
+          "type": "number",
+          "description": "Price per successful CSV download"
+        },
+        "LOGIN_SUCCESS": {
+          "title": "Login Success Price",
+          "type": "number",
+          "description": "Price per successful login"
+        },
+        "WEBHOOK_SENT": {
+          "title": "Webhook Sent Price",
+          "type": "number",
+          "description": "Price per webhook sent"
+        }
+      }
+    }
+  }
+}
