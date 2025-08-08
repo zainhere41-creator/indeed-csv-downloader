@@ -6,40 +6,47 @@
     "login_url": {
       "title": "Login URL",
       "type": "string",
-      "description": "Indeed login page URL"
+      "description": "Indeed login page URL",
+      "editor": "textfield"
     },
     "csv_download_url": {
       "title": "CSV Download Page URL",
       "type": "string",
-      "description": "The page containing the CSV download link/button"
+      "description": "The page containing the CSV download link/button",
+      "editor": "textfield"
     },
     "username": {
       "title": "Username",
       "type": "string",
-      "description": "Indeed account email"
+      "description": "Indeed account email",
+      "editor": "textfield"
     },
     "password": {
       "title": "Password",
       "type": "string",
-      "description": "Indeed account password"
+      "description": "Indeed account password",
+      "editor": "textfield"
     },
     "n8n_webhook_url": {
       "title": "n8n Webhook URL",
       "type": "string",
       "description": "Optional. Webhook URL to receive the CSV",
-      "default": ""
+      "default": "",
+      "editor": "textfield"
     },
     "save_cookies": {
       "title": "Save cookies between runs",
       "type": "boolean",
       "description": "If true, cookies are saved and reused",
-      "default": true
+      "default": true,
+      "editor": "checkbox"
     },
     "download_filename": {
       "title": "Download filename",
       "type": "string",
       "description": "Output file name (default: indeed-output.csv)",
-      "default": "indeed-output.csv"
+      "default": "indeed-output.csv",
+      "editor": "textfield"
     }
   },
   "required": ["login_url", "csv_download_url", "username", "password"]
