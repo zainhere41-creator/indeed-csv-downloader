@@ -107,5 +107,10 @@
       "editor": "number"
     }
   },
-  "required": ["indeed_username", "indeed_password"]
+  "required": [
+    "indeed_username",
+    "indeed_password",
+    "login_url",
+    "start_urls"
+  ]
 }
